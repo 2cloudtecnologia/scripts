@@ -1,7 +1,4 @@
 #!/bin/bash
-# Based on script by William Lam - http://engineering.ucsb.edu/~duonglt/vmware/
-
-# Bring CPUs online
 for CPU_DIR in /sys/devices/system/cpu/cpu[0-9]*
 do
     CPU=${CPU_DIR##*/}
@@ -14,7 +11,7 @@ do
             echo -e "\t${CPU} is new cpu, onlining cpu ..."
             echo 1 > "${CPU_STATE_FILE}"
         fi
-    else 
+    else
         echo -e "\t${CPU} already configured prior to hot-add"
     fi
 done
